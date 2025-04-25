@@ -1,44 +1,85 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import '../styles/Login.css';
+import "../styles/Login.css";
+import Footer from "../Component/Footer.jsx";
+import "../styles/Header.css";
+
+
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [form, setForm] = useState({ username: "", password: "" });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí puedes añadir la lógica para el login
-    console.log('Iniciado sesión con:', email, password);
+    console.log("Login enviado:", form);s
+    // aqui irá la logica de conexion al back
   };
 
   return (
-    <div className="login-container">
-      <div className="login-form">
-        <h2>Iniciar sesión</h2>
-        <form onSubmit={handleSubmit}>
+    <div className="b">
+    <div className="login-contenedor">
+      <header className="header">
+          <h2 className="mb-0 fw-bold">
+              <span style={{ color: "#00c853" }}>Swap</span>
+              <span style={{ color: "#00bcd4" }}>Web</span> 
+          </h2>
+        <div className="nav">
+          <button className="explorar-btn"><Link to="/" >Explorar</Link></button>
+          <div className="perfil-icon">👤</div>
+        </div>
+      </header>
+
+      <div className="login-box">
+        <h2>Iniciar Sesión</h2>
+
+        <form className="form" onSubmit={handleSubmit}>
           <input
-            type="email"
-            placeholder="Correo electrónico"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="text"
+            name="username"
+            placeholder="Nombre de usuario"
+            value={form.username}
+            onChange={handleChange}
             required
           />
           <input
             type="password"
+            name="password"
             placeholder="Contraseña"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={form.password}
+            onChange={handleChange}
             required
           />
-          <button type="submit">Iniciar sesión</button>
+
+          <button type="submit" className="btn-continuar">
+            Continuar
+          </button>
         </form>
-        <div className="redirect-register">
-          <p>¿No tienes cuenta? <Link to="/register">Crear una cuenta aquí</Link></p>
+
+        <div className="links">
+          <a> ¿Olvidaste tu contraseña?</a>
+          <a><Link to="/register">Registrate</Link></a>
+        </div>
+
+        <div className="social-login">
+          <button className="facebook-btn"> 
+            <img src="/images/facebook.png" alt="SFacebook" className="btn-iconFace"/>
+            Continuar con Facebook
+          </button>
+          <button className="google-btn">
+            <img src="/images/google.png" alt="Google" className="btn-iconG"/>
+            Continuar con Google
+          </button>
         </div>
       </div>
-    </div>
-  );
+      </div>
+      <Footer/>
+      </div>
+    );
 };
+
 
 export default Login;
