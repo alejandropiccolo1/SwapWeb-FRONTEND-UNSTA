@@ -1,0 +1,54 @@
+.user-menu {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .avatar {
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .flyout {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    width: 200px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    animation: fadeSlide 0.3s ease forwards;
+    z-index: 100;
+  }
+  
+  .flyout button {
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .flyout button:hover {
+    background-color: #f5f5f5;
+  }
+  
+  @keyframes fadeSlide {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
