@@ -30,10 +30,21 @@ const Intercambiar = () => {
     <div className="intercambiar-container">
       {/* Encabezado simple */}
       <div className="intercambiar-header">
-        <h2 className="app-name">
+        <button
+          className="app-name"
+          onClick={() => navigate("/")}
+          style={{
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            fontSize: "1.5rem",
+            padding: 0,
+          }}
+        >
           <span style={{ color: "#00c853" }}>Swap</span>
           <span style={{ color: "#00bcd4" }}>Web</span>
-        </h2>
+        </button>
+
         <button className="btn-menu" onClick={() => navigate("/")}>
           ← Volver al inicio
         </button>
@@ -84,4 +95,4 @@ const Intercambiar = () => {
   );
 };
 
-export default Intercambiar;
+export default Intercambiar;          

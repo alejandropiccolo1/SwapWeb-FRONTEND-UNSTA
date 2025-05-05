@@ -4,9 +4,13 @@ import '../styles/PerfilUsuario.css';
 import Header from '../Component/Header.jsx';
 import Footer from '../Component/Footer.jsx';
 
+
+
+
 const PerfilUsuario = () => {
   // Mock user data - in a real app, this would come from an API or context
   const [userData, setUserData] = useState({
+   
     id: 1,
     nombre: 'Juan Pérez',
     email: 'juan.perez@ejemplo.com',
@@ -77,8 +81,10 @@ const PerfilUsuario = () => {
   };
 
   return (
+    <>
+    <Header />
     <div className="perfil-usuario-container">
-      <Header />
+      
       
       <div className="perfil-usuario-content">
         <div className="perfil-header">
@@ -110,7 +116,7 @@ const PerfilUsuario = () => {
             </div>
             
             <div className="perfil-acciones">
-              <button className="btn-editar">Editar Perfil</button>
+            <Link to="/Editar" className="btn-editar">Editar Perfil</Link>
               <button className="btn-configuracion">Configuración</button>
             </div>
           </div>
@@ -142,7 +148,7 @@ const PerfilUsuario = () => {
             <div className="articulos-container">
               <div className="articulos-header">
                 <h2>Mis Artículos</h2>
-                <Link to="/publicar" className="btn-publicar">Publicar Nuevo</Link>
+                <Link to="/intercambiar" className="btn-publicar">Publicar Nuevo</Link>
               </div>
               
               <div className="articulos-grid">
@@ -156,7 +162,7 @@ const PerfilUsuario = () => {
                       <h3>{item.titulo}</h3>
                       <p className="articulo-precio">${item.precio}</p>
                       <div className="articulo-acciones">
-                        <button className="btn-editar-articulo">Editar</button>
+                      <button className="btn-editar-articulo" >Editar</button> 
                         <button className="btn-eliminar-articulo">Eliminar</button>
                       </div>
                     </div>
@@ -209,8 +215,10 @@ const PerfilUsuario = () => {
         </div>
       </div>
       
-      <Footer />
+      
     </div>
+    <Footer />
+    </>
   );
 };
 
