@@ -117,7 +117,7 @@ const PerfilUsuario = () => {
             
             <div className="perfil-acciones">
             <Link to="/Editar" className="btn-editar">Editar Perfil</Link>
-              <button className="btn-configuracion">Configuración</button>
+            <Link to="/ConfigPage" className="btn-configuracion">Configuración</Link>
             </div>
           </div>
         </div>
